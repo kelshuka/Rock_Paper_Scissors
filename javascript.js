@@ -33,20 +33,26 @@ function playerRound(playerSelection) {
         
         playerScore +=1;   
 
-        result = (`You win! ${playerSelection} beats ${computerSelection}`);
+        //result = `You win! ${playerSelection} beats ${computerSelection} `;
+        result = 'You win! ' + playerSelection + ' beats ' + computerSelection + '<br></br>' 
+        + 'Your score ' + playerScore + ': ' + 'Computer score ' + computerScore;
         if (playerScore == 5) {
-            result = ("You Won! Game Over");
+            result = "You Won! Game Over " + '<br></br>' 
+            + 'Your score ' + playerScore + ': ' + 'Computer score ' + computerScore; ;
             buttonDisable();
         }
     }
     else if (playerSelection == computerSelection)  {
-        result =  ("Tied! Play again" );
+        result =  "Tied! Play again " + '<br></br>' 
+        + 'Your score ' + playerScore + ': ' + 'Computer score ' + computerScore; ;
     }
      else {
-        result = (`You Lose! ${computerSelection} beats ${playerSelection}`);
         computerScore += 1;
+        result = 'You Lose! ' + computerSelection + 'beats ' + playerSelection + '<br></br>' 
+        + 'Your score ' + playerScore + ': ' + 'Computer score ' + computerScore;;
         if (computerScore == 5) {
-            result = ("You Lose! Game Over");
+            result = "You Lose! Game Over " + '<br></br>' 
+            + 'Your score ' + playerScore + ': ' + 'Computer score ' + computerScore;;
             buttonDisable();
         }
     } 
