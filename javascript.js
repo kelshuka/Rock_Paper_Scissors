@@ -10,7 +10,7 @@ function getComputerChoice() {
 
 //console.log(getComputerChoice())
 
-const butns = document.querySelectorAll('button');
+const butns = document.querySelectorAll('input');
 
 function buttonDisable(){
     butns.forEach(buts => {
@@ -21,36 +21,37 @@ function buttonDisable(){
 function playerRound(playerSelection) {
     //let guess = prompt("Please choose: Rock, Paper or Scissors?","").toLowerCase();
     //playerSelection = guess[0].toUpperCase() + guess.slice(1);
-    //let playerSelection = document.getElementById('button');
+    let computerSelection = getComputerChoice();
     let result ='';
-    const computerSelection = getComputerChoice();
     console.log(computerSelection);
     //const list = ["rock","paper","scissors"];
     //if (guess !== list) {
     //return;}
-    if ((playerSelection === "Rock" && computerSelection === "Scissors") 
-    || (playerSelection === "Scissors" && computerSelection === "Paper") ||
-    (playerSelection === "Paper" && computerSelection === "Rock")) {
-        result = alert(`You win! ${playerSelection} beats ${computerSelection}`);
-        playerScore +=1;
+    if ((playerSelection == "Rock" && computerSelection == "Scissors") 
+        || (playerSelection == "Scissors" && computerSelection == "Paper") ||
+        (playerSelection == "Paper" && computerSelection == "Rock")) {
+        
+        playerScore +=1;   
+
+        result = (`You win! ${playerSelection} beats ${computerSelection}`);
         if (playerScore == 5) {
-            result = alert("You Won! Game Over");
+            result = ("You Won! Game Over");
             buttonDisable();
         }
     }
-    else if (playerSelection === computerSelection)  {
-        result =  alert("Tied! Play again" );
+    else if (playerSelection == computerSelection)  {
+        result =  ("Tied! Play again" );
     }
      else {
-        result = alert(`You Lose! ${computerSelection} beats ${playerSelection}`);
+        result = (`You Lose! ${computerSelection} beats ${playerSelection}`);
         computerScore += 1;
         if (computerScore == 5) {
-            result = alert("You Lose! Game Over");
+            result = ("You Lose! Game Over");
             buttonDisable();
         }
     } 
     
-    //result = document.getElementById('result');
+    document.getElementById('results').innerHTML =result;
     return result;
 
 }
